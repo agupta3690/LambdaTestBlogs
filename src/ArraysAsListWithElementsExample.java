@@ -1,18 +1,26 @@
 import java.util.Arrays;
 import java.util.List;
 
+
 public class ArraysAsListWithElementsExample {
 
-	public static void main (String args[]) {
 
-		//Getting the list view of String elements
+   public static void main (String args[]) {
 
-		List <String> list = Arrays.asList("Java", "Python", "C", "Ruby");
 
-		//Printing the elements inside the list
+       //Getting the list view of String elements
 
-		System.out.println(list);
 
-	}
+       List <String> list = Arrays.asList("Java", "Python", "C", "Ruby");
+
+
+       //Printing the elements inside the list
+
+
+       System.out.println(list);
+
+
+   }
+
 
 }
