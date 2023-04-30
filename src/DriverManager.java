@@ -21,15 +21,59 @@ public class DriverManager {
               
                if (browser.equalsIgnoreCase("chrome")) {
                   
-                   driver = new ChromeDriver();
+            	   //Chrome on local grid
+            	   
+                  /* driver = new ChromeDriver(); */
+                   
+                   //Chrome on LambdaTest cloud grid
+                   
+                   ChromeOptions browserOptions = new ChromeOptions();
+                   browserOptions.setPlatformName("Windows 10");
+                   browserOptions.setBrowserVersion("113.0");
+                   HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+                   ltOptions.put("username", "Your LambdaTest Username");
+                   ltOptions.put("accessKey", "Your LambdaTest Key");
+                   ltOptions.put("project", "Untitled");
+                   ltOptions.put("w3c", true);
+                   browserOptions.setCapability("LT:Options", ltOptions);
+
+
                   
                } else if (browser.equalsIgnoreCase("firefox")) {
                   
-                   driver = new FirefoxDriver();
+            	   //FireFox on local grid
+                   
+            	  /* driver = new FirefoxDriver(); */
+            	   
+            	   //FireFox on LambdaTest cloud grid
+                   
+                   FirefoxOptions browserOptions = new FirefoxOptions();
+                   browserOptions.setPlatformName("Windows 10");
+                   browserOptions.setBrowserVersion("112.0");
+                   HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+                   ltOptions.put("username", "arun.gupta36");
+                   ltOptions.put("accessKey", "ns8jXRSUnep97fV3BgSOC66CFRrNTsuQs2VB1EIdUxhNPxkLUG");
+                   ltOptions.put("project", "Untitled");
+                   ltOptions.put("w3c", true);
+                   browserOptions.setCapability("LT:Options", ltOptions);
                   
                } else if (browser.equalsIgnoreCase("ie")) {
                   
-                   driver = new InternetExplorerDriver();
+            	   //Internet Explorer on local grid
+            	   
+                  /* driver = new InternetExplorerDriver(); */
+                   
+                   //Internet Explorer on LambdaTest cloud grid
+                   
+                   InternetExplorerOptions browserOptions = new InternetExplorerOptions();
+                   browserOptions.setPlatformName("Windows 10");
+                   browserOptions.setBrowserVersion("11.0");
+                   HashMap<String, Object> ltOptions = new HashMap<String, Object>();
+                   ltOptions.put("username", "arun.gupta36");
+                   ltOptions.put("accessKey", "ns8jXRSUnep97fV3BgSOC66CFRrNTsuQs2VB1EIdUxhNPxkLUG");
+                   ltOptions.put("project", "Untitled");
+                   ltOptions.put("w3c", true);
+                   browserOptions.setCapability("LT:Options", ltOptions);
                   
                } else {
                   
