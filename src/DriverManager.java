@@ -51,8 +51,8 @@ public class DriverManager {
                    browserOptions.setPlatformName("Windows 10");
                    browserOptions.setBrowserVersion("112.0");
                    HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-                   ltOptions.put("username", "arun.gupta36");
-                   ltOptions.put("accessKey", "ns8jXRSUnep97fV3BgSOC66CFRrNTsuQs2VB1EIdUxhNPxkLUG");
+                   ltOptions.put("username", "Your LambdaTest Username");
+                   ltOptions.put("accessKey", "Your LambdaTest Key");
                    ltOptions.put("project", "Untitled");
                    ltOptions.put("w3c", true);
                    browserOptions.setCapability("LT:Options", ltOptions);
@@ -69,8 +69,8 @@ public class DriverManager {
                    browserOptions.setPlatformName("Windows 10");
                    browserOptions.setBrowserVersion("11.0");
                    HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-                   ltOptions.put("username", "arun.gupta36");
-                   ltOptions.put("accessKey", "ns8jXRSUnep97fV3BgSOC66CFRrNTsuQs2VB1EIdUxhNPxkLUG");
+                   ltOptions.put("username", "Your LambdaTest Username");
+                   ltOptions.put("accessKey", "Your LambdaTest Key");
                    ltOptions.put("project", "Untitled");
                    ltOptions.put("w3c", true);
                    browserOptions.setCapability("LT:Options", ltOptions);
