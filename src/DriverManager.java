@@ -9,16 +9,46 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class DriverManager {
 
 
-       public static void init_driver(String browser) {
+       public static void init_driver(String browser) throws MalformedURLException {
+              
+        String username = System.getenv("LT_USERNAME") == null ? "Your LT Username" : System.getenv("LT_USERNAME");
+        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "Your LT AccessKey" : System.getenv("LT_ACCESS_KEY");
+              
            // Create a list of browsers
-           List<String> browsers = Arrays.asList("chrome", "firefox", "ie");
+           List<String> browsers = Arrays.asList("chrome", "firefox", "edge");
 
 
            // Loop through the list of browsers and create a driver instance for each one
            for (String browserName : browsers) {
+            
+                  
+        DesiredCapabilities ChromeCaps = new DesiredCapabilities();
+        ChromeCaps.setCapability("platform", "Windows 10");
+        ChromeCaps.setCapability("browserName", "chrome");
+        ChromeCaps.setCapability("version", "latest");
+        ChromeCaps.setCapability("build", "TestNG With Java");
+        ChromeCaps.setCapability("name", m.getName() + this.getClass().getName());
+        ChromeCaps.setCapability("plugin", "git-testng");
+
+
+        DesiredCapabilities FirefoxCaps = new DesiredCapabilities();
+        FirefoxCaps.setCapability("platform", "Windows 10");
+        FirefoxCaps.setCapability("browserName", "firefox");
+        FirefoxCaps.setCapability("version", "114.0");
+        FirefoxCaps.setCapability("build", "TestNG With Java");
+        FirefoxCaps.setCapability("name", m.getName() + this.getClass().getName());
+        FirefoxCaps.setCapability("plugin", "git-testng");
+
+
+        DesiredCapabilities EdgeCaps = new DesiredCapabilities();
+        EdgeCaps.setCapability("platform", "Windows 10");
+        EdgeCaps.setCapability("browserName", "edge");
+        EdgeCaps.setCapability("version", "112.0");
+        EdgeCaps.setCapability("build", "TestNG With Java");
+        EdgeCaps.setCapability("name", m.getName() + this.getClass().getName());
+        EdgeCaps.setCapability("plugin", "git-testng");
               
-               WebDriver driver;
-              
+                  
                if (browser.equalsIgnoreCase("chrome")) {
                   
             	   //Chrome on local grid
@@ -27,15 +57,11 @@ public class DriverManager {
                    
                    //Chrome on LambdaTest cloud grid
                    
-                   ChromeOptions browserOptions = new ChromeOptions();
-                   browserOptions.setPlatformName("Windows 10");
-                   browserOptions.setBrowserVersion("113.0");
-                   HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-                   ltOptions.put("username", "Your LambdaTest Username");
-                   ltOptions.put("accessKey", "Your LambdaTest Key");
-                   ltOptions.put("project", "Untitled");
-                   ltOptions.put("w3c", true);
-                   browserOptions.setCapability("LT:Options", ltOptions);
+                String[] Tags = new String[]{"Feature", "Magicleap", "Severe"};
+                ChromeCaps.setCapability("tags", Tags);
+
+                driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), ChromeCaps);
+
 
 
                   
@@ -47,17 +73,13 @@ public class DriverManager {
             	   
             	   //FireFox on LambdaTest cloud grid
                    
-                   FirefoxOptions browserOptions = new FirefoxOptions();
-                   browserOptions.setPlatformName("Windows 10");
-                   browserOptions.setBrowserVersion("112.0");
-                   HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-                   ltOptions.put("username", "Your LambdaTest Username");
-                   ltOptions.put("accessKey", "Your LambdaTest Key");
-                   ltOptions.put("project", "Untitled");
-                   ltOptions.put("w3c", true);
-                   browserOptions.setCapability("LT:Options", ltOptions);
+         String[] Tags = new String[]{"Feature", "Magicleap", "Severe"};
+                FirefoxCaps.setCapability("tags", Tags);
+
+                driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), FirefoxCaps);
+
                   
-               } else if (browser.equalsIgnoreCase("ie")) {
+               } else if (browser.equalsIgnoreCase("edge")) {
                   
             	   //Internet Explorer on local grid
             	   
@@ -65,15 +87,11 @@ public class DriverManager {
                    
                    //Internet Explorer on LambdaTest cloud grid
                    
-                   InternetExplorerOptions browserOptions = new InternetExplorerOptions();
-                   browserOptions.setPlatformName("Windows 10");
-                   browserOptions.setBrowserVersion("11.0");
-                   HashMap<String, Object> ltOptions = new HashMap<String, Object>();
-                   ltOptions.put("username", "Your LambdaTest Username");
-                   ltOptions.put("accessKey", "Your LambdaTest Key");
-                   ltOptions.put("project", "Untitled");
-                   ltOptions.put("w3c", true);
-                   browserOptions.setCapability("LT:Options", ltOptions);
+                 String[] Tags = new String[]{"Feature", "Magicleap", "Severe"};
+                EdgeCaps.setCapability("tags", Tags);
+
+                driver = new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), EdgeCaps);
+
                   
                } else {
                   
