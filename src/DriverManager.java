@@ -48,8 +48,8 @@ public class DriverManager {
                   
                       } else if (browser.equalsIgnoreCase("firefox")) {
                        
-                      //To launch the firefix browser on local         
-                      /*driver = new FirefioxDriver();*/
+                      //To launch the firefox browser on local         
+                      /*driver = new FirefoxDriver();*/
                       
                       //Setting firefox capabilities
                       DesiredCapabilities FirefoxCaps = new DesiredCapabilities();
